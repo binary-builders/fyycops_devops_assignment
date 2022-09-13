@@ -18,9 +18,9 @@ spec:
       labels:
         app.kubernetes.io/name: willem-assignment
     spec:
-      serviceAccountName: default
-      automountServiceAccountToken: true
-      enableServiceLinks: true
+      # serviceAccountName: default
+      # automountServiceAccountToken: true
+      # enableServiceLinks: true
       containers:
         - name: willem-assignment
           image: registry.hub.docker.com/wgmouton/fyycops:latest
