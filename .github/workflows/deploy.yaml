@@ -77,6 +77,9 @@ jobs:
     env: 
       VERSION: ${{ needs.determine-version.outputs.version }}
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
     # Set the target AKS cluster.
       - name: Link k8s cluster
         uses: Azure/aks-set-context@v1
