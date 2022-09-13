@@ -4,7 +4,7 @@ kubeconfig*
 !kubeconfig.py
 # I specifically added this back as I inject the variables 
 # inside github actions so this file does not contain any secrets.
-# application/.m2/settings.xml
+application/.m2/settings.xml
 application/target
 application/.classpath
 application/.project
