@@ -20,10 +20,9 @@ jobs:
         uses: paulhatch/semantic-version@v4.0.2
         with:
           # A string to determine the format of the version output
-          format: "${major}.${minor}.${increment}"
+          format: "${major}.${minor}.${patch}.${increment}"
           # If this is set to true, *every* commit will be treated as a new version.
           bump_each_commit: true
-
 
   push-versioned-image:
     name: Build and Push Image
