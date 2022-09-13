@@ -1,11 +1,11 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: foo
+  name: willem-assignment-ingress
   namespace: {{ .Release.Namespace }}
 spec:
   entryPoints:                     
-    - foo
+    - web
   routes:                          
   - kind: Rule
     match: Host(`fyy.assigments.wgmouton.com`)                       
