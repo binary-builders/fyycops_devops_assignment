@@ -40,12 +40,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-       
-      # - name: Setup Settings.xml file with injected environment variables
-        # working-directory: ./application/
-        # run: echo $(envsubst < .m2/settings.xml) > .m2/settings.xml
       
       - name: Build and Push Image
+        env:
+          image: ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_REPO }}
+          tag: ${{ env.VERSION }}
         working-directory: ./application
         run: make build
       
@@ -63,13 +62,13 @@ jobs:
           password: ${{ secrets.DOCKER_TOKEN }}
           
       - name: Pull Pushed Image
-        run: docker pull ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_REGISTRY }}:${{ env.VERSION }}
+        run: docker pull ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_REPO }}:${{ env.VERSION }}
 
       - name: Tag Pushed Image as the latest image 
-        run: docker tag ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_REGISTRY }}:${{ env.VERSION }} ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_REGISTRY }}:latest
+        run: docker tag ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_REPO }}:${{ env.VERSION }} ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_REPO }}:latest
       
       - name: Push Docker Run
-        run: docker push ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_REGISTRY }}:latest
+        run: docker push ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_REPO }}:latest
 
   deploy-image:
     name: Deploy Versioned Image to Azure k8s Cluster
