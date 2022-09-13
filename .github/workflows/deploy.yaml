@@ -83,7 +83,7 @@ jobs:
         with:
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
           cluster-name: assignment-willem
-          resource-group: assignment-willem-group
+          resource-group: assignment-willem_group
       - name: Setup Helm
         uses: azure/setup-helm@v3
       
