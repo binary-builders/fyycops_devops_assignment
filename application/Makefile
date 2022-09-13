@@ -5,10 +5,11 @@
 # mvn macro - run mvn inside docker container
 # to reduce local dependencies
 mvn = docker run --rm -ti -v ${PWD}:/data -w /data \
+	--platform linux/amd64 \
 	-v maven-repo:/root/.m2 \
 	-v /var/run/docker.sock:/var/run/docker.sock \
 	-v ${PWD}/.m2/settings.xml:/root/.m2/settings.xml:ro \
-	maven:3.6.3-openjdk-14 mvn 
+	maven:3.6.3-openjdk-14 mvn
 
 repo: 
 	@docker volume create --name maven-repo >/dev/null
