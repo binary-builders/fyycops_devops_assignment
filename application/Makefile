@@ -25,9 +25,9 @@ package: compile
 # compile java app, build and push docker image
 build: compile
 	@$(mvn) jib:build \
-		-Djib.to.image=${{ env.IMAGE }} \
-		-Djib.to.auth.username=${{ env.DOCKER_USERNAME }} \
-    -Djib.to.auth.password=${{ env.DOCKER_PASSWORD }}
+		-Djib.to.image=${IMAGE} \
+		-Djib.to.auth.username=${DOCKER_USERNAME} \
+    -Djib.to.auth.password=${DOCKER_PASSWORD}
 
 # run previously pushed docker image locally
 start: stop
