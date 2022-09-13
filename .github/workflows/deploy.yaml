@@ -7,7 +7,7 @@ on:
 
 env:
   IMAGE_REGISTRY: registry.hub.docker.com
-  IMAGE_REPO: wgmouton/fyycops-assignment
+  IMAGE_REPO: wgmouton/fyycops
 
 jobs:
   determine-version:
