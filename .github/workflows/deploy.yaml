@@ -90,4 +90,4 @@ jobs:
       - name: Setup Helm
         uses: azure/setup-helm@v3
       
-      - run: helm upgrade willem-assignment .ops/chart --install --version ${{ env.VERSION }}
+      - run: helm upgrade willem-assignment .ops/chart --install --dependency-update --version ${{ env.VERSION }}
