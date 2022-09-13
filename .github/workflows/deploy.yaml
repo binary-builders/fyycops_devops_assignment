@@ -5,6 +5,10 @@ on:
     branches: 
       - main
 
+env:
+  IMAGE_REGISTRY: registry.hub.docker.com
+  IMAGE_REPO: wgmouton/fyycops-assignment
+
 jobs:
   determine-version:
     name: Determine Application Version
@@ -36,7 +40,7 @@ jobs:
 
       - name: Setup Settings.xml file with injected environment variables
         working-directory: ./application/
-        run: envsubst < .m2/settings.xml
+        run: echo $(envsubst < .m2/settings.xml) > .m2/settings.xml
       
       - name: Build and Push Image
         working-directory: ./application
