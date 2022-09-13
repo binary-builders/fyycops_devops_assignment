@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: willem-assignment
+  namespace: {{ .Release.Namespace }}
   labels:
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: willem-assignment
