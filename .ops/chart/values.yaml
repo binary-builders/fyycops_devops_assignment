@@ -1,0 +1,14 @@
+traefik:
+  deployment:
+    kind: DaemonSet
+  
+  ingressRoute:
+    dashboard:
+      enabled: false
+
+  ports:
+    traefik:
+      expose: false
+
+  service:
+    type: Loadbalancer

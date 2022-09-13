@@ -1,0 +1,26 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: foo
+  namespace: bar
+spec:
+  entryPoints:                     
+    - foo
+  routes:                          
+  - kind: Rule
+    match: Host(`fyy.assigments.wgmouton.com`)                       
+    services:                      
+    - kind: Service
+      name: willem-assignment
+      namespace: default
+      passHostHeader: true
+      port: 80                     
+      scheme: https
+  tls:                             
+    secretName: supersecret        
+    options:                       
+      name: opt                    
+      namespace: default           
+    certResolver: foo              
+    domains:                       
+    - main: fyy.assigments.wgmouton.com
