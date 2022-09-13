@@ -24,7 +24,7 @@ package: compile
 
 # compile java app, build and push docker image
 build: compile
-	@$(mvn) jib:build
+	@$(mvn) jib:build -Djib.to.image=${IMAGE}
 
 # run previously pushed docker image locally
 start: stop

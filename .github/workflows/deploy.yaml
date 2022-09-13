@@ -26,7 +26,7 @@ jobs:
         uses: paulhatch/semantic-version@v4.0.2
         with:
           # A string to determine the format of the version output
-          format: "${major}.${minor}.${patch}.${increment}"
+          format: "${major}.${minor}.${patch}"
           # If this is set to true, *every* commit will be treated as a new version.
           bump_each_commit: true
 
@@ -36,15 +36,13 @@ jobs:
     needs: [determine-version]
     env: 
       VERSION: ${{ needs.determine-version.outputs.version }}
-      IMAGE_TAG: ${{ needs.determine-version.outputs.version }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       
       - name: Build and Push Image
         env:
-          image: ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_REPO }}
-          tag: ${{ env.VERSION }}
+          IMAGE: ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_REPO }}:${{ env.VERSION }}
         working-directory: ./application
         run: make build
       
