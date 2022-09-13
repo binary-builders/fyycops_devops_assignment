@@ -11,16 +11,16 @@ spec:
     match: Host(`fyy.assigments.wgmouton.com`)                       
     services:                      
     - kind: Service
-      name: willem-assignment
-      namespace: default
+      name: willem-assignment-service
+      namespace: {{ .Release.Namespace }}
       passHostHeader: true
       port: 80                     
       scheme: https
-  tls:                             
-    secretName: supersecret        
-    options:                       
-      name: opt                    
-      namespace: default           
-    certResolver: foo              
-    domains:                       
-    - main: fyy.assigments.wgmouton.com
+  # tls:                             
+  #   secretName: supersecret        
+  #   options:                       
+  #     name: opt                    
+  #     namespace: default           
+  #   certResolver: foo              
+  #   domains:                       
+  #   - main: fyy.assigments.wgmouton.com

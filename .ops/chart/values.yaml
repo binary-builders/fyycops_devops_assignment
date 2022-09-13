@@ -15,3 +15,33 @@ traefik:
 
   service:
     type: LoadBalancer
+
+  certResolvers:
+    letsencrypt:
+      # for challenge options cf. https://doc.traefik.io/traefik/https/acme/
+      email: email@example.com
+      dnsChallenge:
+        # also add the provider's required configuration under env
+        # or expand then from secrets/configmaps with envfrom
+        # cf. https://doc.traefik.io/traefik/https/acme/#providers
+        provider: digitalocean
+        # add futher options for the dns challenge as needed
+        # cf. https://doc.traefik.io/traefik/https/acme/#dnschallenge
+        delayBeforeCheck: 30
+        resolvers:
+          - 1.1.1.1
+          - 8.8.8.8
+      tlsChallenge: true
+      httpChallenge:
+        entryPoint: "web"
+      # match the path to persistence
+      storage: /data/acme.json
+  # ports:
+  #   websecure:
+  #     tls:
+  #       enabled: true
+  #       # this is the name of a TLSOption definition
+  #       options: ""
+  #       certResolver: ""
+  #       domains: 
+  #         -  fyy.assigments.wgmouton.com.wgmouton.com
