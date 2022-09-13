@@ -18,6 +18,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Git Version
         id: git-version
@@ -37,8 +39,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+       
       # - name: Setup Settings.xml file with injected environment variables
         # working-directory: ./application/
         # run: echo $(envsubst < .m2/settings.xml) > .m2/settings.xml
