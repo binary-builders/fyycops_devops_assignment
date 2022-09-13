@@ -43,6 +43,8 @@ jobs:
       - name: Build and Push Image
         env:
           IMAGE: ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_REPO }}:${{ env.VERSION }}
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         working-directory: ./application
         run: make build
       
