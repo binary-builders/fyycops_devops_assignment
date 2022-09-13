@@ -4,7 +4,7 @@
 
 # mvn macro - run mvn inside docker container
 # to reduce local dependencies
-mvn = docker run --rm -ti -v ${PWD}:/data -w /data \
+mvn = docker run --rm -v ${PWD}:/data -w /data \
 	--platform linux/amd64 \
 	-v maven-repo:/root/.m2 \
 	-v /var/run/docker.sock:/var/run/docker.sock \
