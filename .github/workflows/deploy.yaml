@@ -38,9 +38,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Setup Settings.xml file with injected environment variables
-        working-directory: ./application/
-        run: echo $(envsubst < .m2/settings.xml) > .m2/settings.xml
+      # - name: Setup Settings.xml file with injected environment variables
+        # working-directory: ./application/
+        # run: echo $(envsubst < .m2/settings.xml) > .m2/settings.xml
       
       - name: Build and Push Image
         working-directory: ./application
