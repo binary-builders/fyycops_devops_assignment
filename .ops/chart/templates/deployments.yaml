@@ -22,8 +22,7 @@ spec:
       automountServiceAccountToken: true
       enableServiceLinks: true
       containers:
-        containers:
-          - name: willem-assignment
-            image: registry.hub.docker.com/wgmouton/fyycops:latest
-            ports:
-            - containerPort: 80
+        - name: willem-assignment
+          image: registry.hub.docker.com/wgmouton/fyycops:latest
+          ports:
+          - containerPort: 80
