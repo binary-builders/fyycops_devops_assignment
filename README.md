@@ -1,3 +1,9 @@
+# My Changes
+- I have deployed this to a azure cluster and I will provide the Kubeconf file to someone once I have a email that I can use.
+- In the mean time you can access this on http://fyy.assigments.wgmouton.com/
+- I wanted to add a certificate via lets encrypt, did not end up getting to building in cert manager and hooking it up to traefik.
+- The k8s resource files are in a basic helm chart. One can do lots with.
+
 # devops-assignments
 
 This repository contains an example spring boot application which needs to be built and deployed to a kubernetes cluster.

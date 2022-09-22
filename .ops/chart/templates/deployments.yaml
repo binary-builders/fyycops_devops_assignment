@@ -26,3 +26,9 @@ spec:
           image: registry.hub.docker.com/wgmouton/fyycops:latest
           ports:
           - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8080
+              initialDelaySeconds: 3
+              periodSeconds: 3
